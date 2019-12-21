@@ -41,6 +41,7 @@ const Tab = styled.li<TabPropAttr>`
   color:${props => props.primary ? '#F37327' : '#fff'};
   text-decoration: none;
   font-size: 14px;
+  cursor: pointer;
   opacity: 0.8;
   line-height: 52px;
   padding: 10px 15px;

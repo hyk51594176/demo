@@ -20,7 +20,7 @@ export interface ShowPicAttr {
 }
 
 export interface PositionListAttr {
-  top?: number
+  top: number
 }
 export interface PositionData {
   "firstCategory": string

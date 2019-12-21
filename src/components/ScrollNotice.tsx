@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { ScrollNoticeProps, PositionListAttr } from '../types';
-const PositionList = styled.div<PositionListAttr>`
+const PositionList = styled.div.attrs<PositionListAttr>((props)=>({
+  style:{
+    top: (props.top || 0) + 'px',
+  }
+}))<PositionListAttr>`
   position: absolute;
   z-index: 1;
-  width: 100%;
   transition: all 0ms ease-in 0s;
-  transform:${props => 'translateY(' + (props.top || 0) + 'px)'};
+  width: 100%;
  `
 const SrollContent = styled.li`
   overflow: hidden;
@@ -42,7 +45,7 @@ const City = styled.em`
   white-space: nowrap;
 `
 
-const ScrollNotice: React.FC<ScrollNoticeProps> = ({positionData}) => {
+const ScrollNotice: React.FC<ScrollNoticeProps> = ({ positionData }) => {
   const [top, setTop] = useState(0)
   const [stop, setStop] = useState(false)
   const ulEl = useRef<any>(null)
@@ -50,9 +53,9 @@ const ScrollNotice: React.FC<ScrollNoticeProps> = ({positionData}) => {
   useEffect(() => {
     const timer = setInterval(() => {
       if (stop) return
-      if (!continer || !ulEl) return 
+      if (!continer || !ulEl) return
       if (Math.abs(continer.current.offsetTop) >= ulEl.current.offsetHeight) setTop(0)
-      else setTop(top-1) 
+      else setTop(top - 1)
     })
     return () => clearInterval(timer)
   }, [positionData, top, stop])

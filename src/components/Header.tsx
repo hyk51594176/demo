@@ -73,7 +73,7 @@ const Header: React.FC = () => {
           <Tab onClick={()=>setValue(1)} primary={value === 1}>社会招聘 </Tab>
           <Tab onClick={()=>setValue(2)} primary={value === 2}>校园招聘</Tab>
           <Tab onClick={()=>setValue(3)} primary={value === 3}>了解阿里</Tab>
-          <Tab onClick={()=>setValue(5)} primary={value === 4}>个人中心</Tab>
+          <Tab onClick={()=>setValue(4)} primary={value === 4}>个人中心</Tab>
           <LoginBtn>
             欢迎来到阿里巴巴集团招聘！
             <a href='/'>登录</a>&nbsp;|&nbsp;<a  href='/'>注册</a>

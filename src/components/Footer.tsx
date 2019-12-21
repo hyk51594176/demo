@@ -3,6 +3,8 @@ import styled from 'styled-components';
 const IndexFooter = styled.div`
   width: 100%;
   height: 44px;
+  position: fixed;
+  bottom: 0;
   background: #2C2F33;
 `
 const FooterContent = styled.div`

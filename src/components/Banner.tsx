@@ -120,6 +120,7 @@ const Banner: React.FC = () => {
           <Button>搜索</Button>
         </SearchBox>
         <HotText>
+          <SearchKey>热门搜索： </SearchKey>
           <SearchKey>JAVA</SearchKey>
           <SearchKey>IOS</SearchKey>
           <SearchKey>数据</SearchKey>

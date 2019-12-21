@@ -58,7 +58,7 @@ const ScrollNotice: React.FC<ScrollNoticeProps> = ({ positionData, delay = 40 })
       else setTop(top - 1)
     },delay)
     return () => clearInterval(timer)
-  }, [positionData, top, stop])
+  }, [positionData, top, stop, delay])
   return <PositionList top={top} onMouseMove={setStop.bind(null, true)} ref={continer} onMouseOut={setStop.bind(null, false)}>
     <ul ref={ulEl}>
       {positionData.map(obj => <SrollContent key={obj.positionId}>

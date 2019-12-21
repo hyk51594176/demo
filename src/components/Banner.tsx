@@ -92,6 +92,18 @@ const Button = styled.button`
   border: 0;
   cursor: pointer;
 `
+const HotText = styled.div`
+  text-align: center;
+  color: rgba(255,255,255,0.80);
+  padding: 10px 0;
+`
+const SearchKey = styled.a`
+  color: rgba(255,255,255,0.80);
+  padding-right: 10px;
+  &:hover{
+    color: #F37327
+  }
+`
 
 const Banner: React.FC = () => {
   return <IndexMain>
@@ -107,6 +119,18 @@ const Banner: React.FC = () => {
           <Input placeholder='请输入职位关键词'/>
           <Button>搜索</Button>
         </SearchBox>
+        <HotText>
+          <SearchKey>JAVA</SearchKey>
+          <SearchKey>IOS</SearchKey>
+          <SearchKey>数据</SearchKey>
+          <SearchKey>安全</SearchKey>
+          <SearchKey>搜索</SearchKey>
+          <SearchKey>算法</SearchKey>
+          <SearchKey>运营</SearchKey>
+          <SearchKey>视觉</SearchKey>
+          <SearchKey>交互</SearchKey>
+          <SearchKey>前端</SearchKey>
+        </HotText>
       </Form>
     </Continer>
   </IndexMain>

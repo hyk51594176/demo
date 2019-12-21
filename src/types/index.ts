@@ -32,5 +32,6 @@ export interface PositionData {
   "name": string
 }
 export interface ScrollNoticeProps {
-  positionData:Array<PositionData>
+  positionData: Array<PositionData>
+  delay?: number
 }

@@ -45,7 +45,7 @@ const City = styled.em`
   white-space: nowrap;
 `
 
-const ScrollNotice: React.FC<ScrollNoticeProps> = ({ positionData }) => {
+const ScrollNotice: React.FC<ScrollNoticeProps> = ({ positionData, delay = 40 }) => {
   const [top, setTop] = useState(0)
   const [stop, setStop] = useState(false)
   const ulEl = useRef<any>(null)
@@ -56,7 +56,7 @@ const ScrollNotice: React.FC<ScrollNoticeProps> = ({ positionData }) => {
       if (!continer || !ulEl) return
       if (Math.abs(continer.current.offsetTop) >= ulEl.current.offsetHeight) setTop(0)
       else setTop(top - 1)
-    })
+    },delay)
     return () => clearInterval(timer)
   }, [positionData, top, stop])
   return <PositionList top={top} onMouseMove={setStop.bind(null, true)} ref={continer} onMouseOut={setStop.bind(null, false)}>

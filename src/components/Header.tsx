@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-interface LineProp {
-  fontSize: string
-  lineHeight: string
-  margin?: string
-}
-interface TabProp {
-  primary?: boolean
-}
+import { TabPropAttr, LinePropAttr } from '../types';
+
 const HeaderBar = styled.div`
   background-color: #2C2F33;
   height: 52px;
+  font-family: PingFangSC-Regular;
   overflow: hidden;
 `
 const HeadMain = styled.div`
@@ -28,7 +23,7 @@ const Logo = styled.a`
   float: left;
   cursor: pointer;
 `
-const Line = styled.i<LineProp>`
+const Line = styled.i<LinePropAttr>`
   float: left;
   color: white;
   font-style: normal;
@@ -38,10 +33,9 @@ const Line = styled.i<LineProp>`
   opacity: 0.8;
 `
 const Tabs = styled.ul`
-  list-style: none;
+  
 `
-const Tab = styled.li<TabProp>`
-  list-style: none;
+const Tab = styled.li<TabPropAttr>`
   display: inline;
   position: relative;
   color:${props => props.primary ? '#F37327' : '#fff'};
@@ -60,6 +54,9 @@ const LoginBtn = styled.div`
   line-height: 52px;
   color: #fff;
   text-align: right;
+  a{
+    color: #fff;
+  }
 `
 const Header: React.FC = () => {
   const [value, setValue] = useState(0)
@@ -67,7 +64,7 @@ const Header: React.FC = () => {
     <HeadMain>
       <HeadMenu>
         <Logo>
-          <img src='https://img.alicdn.com/tfs/TB1Zv8_lxSYBuNjSspjXXX73VXa-390-63.png' height='20' />
+          <img src='https://img.alicdn.com/tfs/TB1Zv8_lxSYBuNjSspjXXX73VXa-390-63.png' height='20' alt=''/>
         </Logo>
         <Line fontSize='20px' lineHeight='52px' margin='0 10px'>|</Line>
         <Line fontSize='14px' lineHeight='54px'>社招官网</Line>
@@ -79,7 +76,7 @@ const Header: React.FC = () => {
           <Tab onClick={()=>setValue(5)} primary={value === 4}>个人中心</Tab>
           <LoginBtn>
             欢迎来到阿里巴巴集团招聘！
-            <a>登录</a>&nbsp;|&nbsp;<a>注册</a>
+            <a href='/'>登录</a>&nbsp;|&nbsp;<a  href='/'>注册</a>
           </LoginBtn>
         </Tabs>
       </HeadMenu>

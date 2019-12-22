@@ -18,3 +18,15 @@ export function usePositionData() {
   },[])
   return positionData
 }
+
+export function useResize() {
+  const [innerHeight,setInnerHeight] = useState(window.innerHeight)
+  function onResize() {
+    setInnerHeight(window.innerHeight)
+  }
+  useEffect(()=>{
+    window.addEventListener('resize',onResize)
+    return ()=>window.removeEventListener('resize',onResize)
+  },[innerHeight])
+  return innerHeight
+}

@@ -22,6 +22,9 @@ export interface ShowPicAttr {
 export interface PositionListAttr {
   top: number
 }
+export interface IndexFooterAttr {
+  isFixed?: boolean
+}
 export interface PositionData {
   "firstCategory": string
   "secondCategory":string

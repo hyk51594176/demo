@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-const IndexFooter = styled.div`
+import { useResize } from '../api';
+import { IndexFooterAttr } from '../types';
+const IndexFooter = styled.div<IndexFooterAttr>`
+  position: ${props => props.isFixed ? 'fixed' : null};
+  bottom: ${props => props.isFixed ? 0 : null};
   width: 100%;
   height: 44px;
-  position: fixed;
-  bottom: 0;
   background: #2C2F33;
 `
 const FooterContent = styled.div`
@@ -18,7 +20,9 @@ const FooterContent = styled.div`
 `
 
 const Footer: React.FC = () => {
-  return <IndexFooter>
+  const innerHeight = useResize()
+
+  return <IndexFooter isFixed={innerHeight > 938}>
     <FooterContent>
       阿里巴巴集团 Copyright ©1999-2019 版权所有
     </FooterContent>

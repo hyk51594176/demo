@@ -26,13 +26,13 @@ export interface IndexFooterAttr {
   isFixed?: boolean
 }
 export interface PositionData {
-  "firstCategory": string
-  "secondCategory":string
-  "positionId": number
-  "applyTimeDesc":string
-  "departmentName": string
-  "workLocation": string
-  "name": string
+  firstCategory: string
+  secondCategory: string
+  positionId: number
+  applyTimeDesc: string
+  departmentName: string
+  workLocation: string
+  name: string
 }
 export interface ScrollNoticeProps {
   positionData: Array<PositionData>

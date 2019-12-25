@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { EnWordAttr } from '../types';
+import React from 'react'
+import styled from 'styled-components'
+import { EnWordAttr } from '../types'
 const IndexMain = styled.div`
   position: relative;
   height: 478px;
@@ -10,7 +10,7 @@ const IndexMain = styled.div`
 `
 const BgImg = styled.img`
   vertical-align: middle;
-  width: 1440px; 
+  width: 1440px;
   height: 478px;
 `
 const Mark = styled.div`
@@ -19,7 +19,7 @@ const Mark = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(31,56,88,0.40);
+  background: rgba(31, 56, 88, 0.4);
 `
 const Continer = styled.div`
   width: 1000px;
@@ -40,9 +40,9 @@ const Form = styled.div`
 const EnWord = styled.p<EnWordAttr>`
   font-family: Rufina-Bold;
   color: #fff;
-  font-size: ${props => props.fontSize||' 54px'}; 
-  line-height: ${props => props.lineHeight||' 56px'}; 
-  margin-bottom:${props => props.marginBottom};
+  font-size: ${props => props.fontSize || ' 54px'};
+  line-height: ${props => props.lineHeight || ' 56px'};
+  margin-bottom: ${props => props.marginBottom};
 `
 const SearchBox = styled.div`
   width: 490px;
@@ -79,7 +79,7 @@ const Input = styled.input`
 `
 const Button = styled.button`
   color: #fff;
-  background: #F37327;
+  background: #f37327;
   font-size: 14px;
   font-family: PingFangSC-Regular;
   width: 92px;
@@ -94,47 +94,51 @@ const Button = styled.button`
 `
 const HotText = styled.div`
   text-align: center;
-  color: rgba(255,255,255,0.80);
+  color: rgba(255, 255, 255, 0.8);
   padding: 10px 0;
 `
 const SearchKey = styled.a`
-  color: rgba(255,255,255,0.80);
+  color: rgba(255, 255, 255, 0.8);
   padding-right: 10px;
-  &:hover{
-    color: #F37327
+  &:hover {
+    color: #f37327;
   }
 `
 
 const Banner: React.FC = () => {
-  return <IndexMain>
-    <BgImg src="https://img.alicdn.com/tfs/TB14TEEm7CWBuNjy0FaXXXUlXXa-1440-478.png" />
-    <Mark/>
-    <Continer>
-      <Form>
-        <EnWord>If not now, when?</EnWord>
-        <EnWord>If not me, who?</EnWord>
-        <EnWord fontSize='34px' lineHeight='48px' marginBottom='38px'>此时此刻，非我莫属！</EnWord>
-        <SearchBox>
-          <InputMark/>
-          <Input placeholder='请输入职位关键词'/>
-          <Button>搜索</Button>
-        </SearchBox>
-        <HotText>
-          <SearchKey>热门搜索:</SearchKey>
-          <SearchKey>JAVA</SearchKey>
-          <SearchKey>IOS</SearchKey>
-          <SearchKey>数据</SearchKey>
-          <SearchKey>安全</SearchKey>
-          <SearchKey>搜索</SearchKey>
-          <SearchKey>算法</SearchKey>
-          <SearchKey>运营</SearchKey>
-          <SearchKey>视觉</SearchKey>
-          <SearchKey>交互</SearchKey>
-          <SearchKey>前端</SearchKey>
-        </HotText>
-      </Form>
-    </Continer>
-  </IndexMain>
+  return (
+    <IndexMain>
+      <BgImg src="https://img.alicdn.com/tfs/TB14TEEm7CWBuNjy0FaXXXUlXXa-1440-478.png" />
+      <Mark />
+      <Continer>
+        <Form>
+          <EnWord>If not now, when?</EnWord>
+          <EnWord>If not me, who?</EnWord>
+          <EnWord fontSize="34px" lineHeight="48px" marginBottom="38px">
+            此时此刻，非我莫属！
+          </EnWord>
+          <SearchBox>
+            <InputMark />
+            <Input placeholder="请输入职位关键词" />
+            <Button>搜索</Button>
+          </SearchBox>
+          <HotText>
+            <SearchKey>热门搜索:</SearchKey>
+            <SearchKey>JAVA</SearchKey>
+            <SearchKey>IOS</SearchKey>
+            <SearchKey>数据</SearchKey>
+            <SearchKey>安全</SearchKey>
+            <SearchKey>搜索</SearchKey>
+            <SearchKey>算法</SearchKey>
+            <SearchKey>运营</SearchKey>
+            <SearchKey>视觉</SearchKey>
+            <SearchKey>交互</SearchKey>
+            <SearchKey>前端</SearchKey>
+          </HotText>
+        </Form>
+      </Continer>
+    </IndexMain>
+  )
 }
 
-export default Banner;
+export default Banner

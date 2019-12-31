@@ -64,14 +64,14 @@ const ScrollNotice: React.FC<ScrollNoticeProps> = ({ positionData, delay = 40 })
   const ulEl = useRef<HTMLUListElement>(null)
   const continer = useRef<HTMLDivElement>(null)
   useEffect(() => {
-    const timer = setInterval(() => {
-      if (stop) return
+    const timer:number = setInterval(() => {
+      if (stop) return clearInterval(timer)
       if (continer.current === null || ulEl.current === null) return
-      if (Math.abs(continer.current.offsetTop) >= ulEl.current.offsetHeight) setTop(0)
-      else setTop(top - 1)
+      if (Math.abs(continer.current.offsetTop) >= ulEl.current.offsetHeight) setTop(t => 0)
+      else setTop(t => t - 1)
     }, delay)
     return () => clearInterval(timer)
-  }, [positionData, top, stop, delay])
+  }, [delay, stop])
   return (
     <PositionList top={top} onMouseMove={setStop.bind(null, true)} ref={continer} onMouseOut={setStop.bind(null, false)}>
       <UlList ref={ulEl} positionData={positionData} />

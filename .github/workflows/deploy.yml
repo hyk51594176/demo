@@ -14,5 +14,5 @@ jobs:
         with:
           cmd: build
       - name: deploy    
-        run: sh ./deploy.sh 
+        run: sh ../deploy.sh 
     

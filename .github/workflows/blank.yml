@@ -4,13 +4,14 @@ on: [push]
 
 jobs:
   build:
-    name: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: install # will run `yarn install` command
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: build # will run `yarn build` command
+      - name: yarn install and build
+        uses: borales/actions-yarn@v2.0.0
+        run: |
+          yarn install
+          yarn build
+      - name: deploy    
+        run: sh ./deploy.sh 
+    

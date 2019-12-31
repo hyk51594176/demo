@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import { ScrollNoticeProps, PositionListAttr } from '../types'
+import { ScrollNoticeProps, PositionListAttr, UlListProps } from '../types'
 const PositionList = styled.div.attrs<PositionListAttr>(props => ({
   style: {
     top: (props.top || 0) + 'px'
@@ -44,6 +44,19 @@ const City = styled.em`
   text-overflow: ellipsis;
   white-space: nowrap;
 `
+const UlList = React.forwardRef<HTMLUListElement, UlListProps>(({ positionData }, ref) => {
+  return (
+    <ul ref={ref}>
+      {positionData.map(obj => (
+        <SrollContent key={obj.positionId}>
+          <Position>{obj.name}</Position>
+          <Time>{obj.applyTimeDesc}</Time>
+          <City>{obj.workLocation}</City>
+        </SrollContent>
+      ))}
+    </ul>
+  )
+})
 
 const ScrollNotice: React.FC<ScrollNoticeProps> = ({ positionData, delay = 40 }) => {
   const [top, setTop] = useState(0)
@@ -61,25 +74,9 @@ const ScrollNotice: React.FC<ScrollNoticeProps> = ({ positionData, delay = 40 })
   }, [positionData, top, stop, delay])
   return (
     <PositionList top={top} onMouseMove={setStop.bind(null, true)} ref={continer} onMouseOut={setStop.bind(null, false)}>
-      <ul ref={ulEl}>
-        {positionData.map(obj => (
-          <SrollContent key={obj.positionId}>
-            <Position>{obj.name}</Position>
-            <Time>{obj.applyTimeDesc}</Time>
-            <City>{obj.workLocation}</City>
-          </SrollContent>
-        ))}
-      </ul>
+      <UlList ref={ulEl} positionData={positionData} />
       {/* 无缝滚动 */}
-      <ul>
-        {positionData.map(obj => (
-          <SrollContent key={obj.positionId}>
-            <Position>{obj.name}</Position>
-            <Time>{obj.applyTimeDesc}</Time>
-            <City>{obj.workLocation}</City>
-          </SrollContent>
-        ))}
-      </ul>
+      <UlList positionData={positionData} />
     </PositionList>
   )
 }

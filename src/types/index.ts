@@ -1,3 +1,4 @@
+
 export interface LinePropAttr {
   fontSize: string
   lineHeight: string
@@ -34,7 +35,10 @@ export interface PositionData {
   workLocation: string
   name: string
 }
-export interface ScrollNoticeProps {
+export interface UlListProps {
   positionData: Array<PositionData>
+}
+export interface ScrollNoticeProps extends UlListProps{
   delay?: number
 }
+

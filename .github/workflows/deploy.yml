@@ -7,11 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: yarn install and build
-        uses: borales/actions-yarn@v2.0.0
-        run: |
-          yarn install
-          yarn build
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: build
       - name: deploy    
         run: sh ./deploy.sh 
     

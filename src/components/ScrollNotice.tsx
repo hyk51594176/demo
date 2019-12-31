@@ -48,12 +48,12 @@ const City = styled.em`
 const ScrollNotice: React.FC<ScrollNoticeProps> = ({ positionData, delay = 40 }) => {
   const [top, setTop] = useState(0)
   const [stop, setStop] = useState(false)
-  const ulEl = useRef<any>(null)
-  const continer = useRef<any>(null)
+  const ulEl = useRef<HTMLUListElement>(null)
+  const continer = useRef<HTMLDivElement>(null)
   useEffect(() => {
     const timer = setInterval(() => {
       if (stop) return
-      if (!continer || !ulEl) return
+      if (continer.current === null || ulEl.current === null) return
       if (Math.abs(continer.current.offsetTop) >= ulEl.current.offsetHeight) setTop(0)
       else setTop(top - 1)
     }, delay)

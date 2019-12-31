@@ -56,7 +56,6 @@ const ScrollNotice: React.FC<ScrollNoticeProps> = ({ positionData, delay = 40 })
       if (!continer || !ulEl) return
       if (Math.abs(continer.current.offsetTop) >= ulEl.current.offsetHeight) setTop(0)
       else setTop(top - 1)
-      console.log(continer.current.offsetTop,ulEl.current.offsetHeight)
     }, delay)
     return () => clearInterval(timer)
   }, [positionData, top, stop, delay])

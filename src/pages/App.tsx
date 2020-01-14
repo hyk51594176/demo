@@ -3,7 +3,7 @@ import Header from '../components/Header'
 import Banner from '../components/Banner'
 import Footer from '../components/Footer'
 import Content from '../components/Content'
-import { useStore } from '../utils/Store'
+import { useStore } from '@hanyk/usestore'
 const test = (id: number) => (dispatch: any) => Promise.resolve(id).then(res => dispatch({ type: 'FETCH_DATA', payload: [id] }))
 const App: React.FC = () => {
   const [state, dispatch] = useStore<{ episodes: [] }>()

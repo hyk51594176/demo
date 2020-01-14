@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './pages/App'
 import * as serviceWorker from './serviceWorker'
-import { Provider } from './utils/Store'
+import { Provider } from '@hanyk/usestore'
 import { initState, reducer } from './utils/reducer'
 
 ReactDOM.render(

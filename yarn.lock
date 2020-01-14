@@ -988,6 +988,13 @@
   resolved "https://registry.npmjs.org/@emotion/unitless/-/unitless-0.7.4.tgz#a87b4b04e5ae14a88d48ebef15015f6b7d1f5677"
   integrity sha512-kBa+cDHOR9jpRJ+kcGMsysrls0leukrm68DmFQoMIWQcXdr2cZvyvypWuGYT7U+9kAExUE7+T7r6G3C3A6L8MQ==
 
+"@hanyk/usestore@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/@hanyk/usestore/download/@hanyk/usestore-1.0.0.tgz?cache=0&sync_timestamp=1578981709281&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40hanyk%2Fusestore%2Fdownload%2F%40hanyk%2Fusestore-1.0.0.tgz#1742273b8411fe2e766181c2e842399bda8f45b1"
+  integrity sha1-F0InO4QR/i52YYHC6EI5m9qPRbE=
+  dependencies:
+    react "^16.12.0"
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.npmjs.org/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"

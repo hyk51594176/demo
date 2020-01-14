@@ -6,7 +6,7 @@ import Content from '../components/Content'
 import { useStore } from '../utils/Store'
 const test = (id: number) => (dispatch: any) => Promise.resolve(id).then(res => dispatch({ type: 'FETCH_DATA', payload: [id] }))
 const App: React.FC = () => {
-  const { state, dispatch } = useStore<{ episodes: [] }>()
+  const [state, dispatch] = useStore<{ episodes: [] }>()
   console.log(state)
   return (
     <>

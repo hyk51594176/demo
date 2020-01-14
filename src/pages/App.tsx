@@ -6,7 +6,7 @@ import Content from '../components/Content'
 import { useStore } from '@hanyk/usestore'
 const test = (id: number) => (dispatch: any) => Promise.resolve(id).then(res => dispatch({ type: 'FETCH_DATA', payload: [id] }))
 const App: React.FC = () => {
-  const [state, dispatch] = useStore<{ episodes: [] }>()
+  const [state, dispatch] = useStore<{ episodes: Array<number> }>()
   console.log(state)
   return (
     <>
@@ -14,7 +14,13 @@ const App: React.FC = () => {
       <Banner />
       <Content />
       <Footer />
-      <button onClick={() => dispatch(test(123))}>test</button>
+      <button
+        onClick={() => {
+          dispatch(test(123))
+        }}
+      >
+        test
+      </button>
       <br />
       {state.episodes}
       <br />

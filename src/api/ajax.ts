@@ -8,7 +8,7 @@ const instance = axios.create({
   timeout: 60000
 })
 instance.interceptors.request.use(config => {
-  const { systemInfo } = store.getState()
+  const { systemInfo, baseUrl } = store.getState()
   const data = {
     systemId: systemInfo && systemInfo.systemId,
     appType: 'web'
@@ -19,6 +19,9 @@ instance.interceptors.request.use(config => {
     Object.assign(config.params, data)
   } else {
     Object.assign(config.data, data)
+  }
+  if (process.env.NODE_ENV !== 'production') {
+    config.baseURL = baseUrl
   }
   if (!config.closeLoading) config.hideLoading = showLoading(Symbol('request'))
   return config
@@ -73,12 +76,6 @@ instance.interceptors.response.use(
         if (String(res.code) === '503' && !isRest) {
           isRest = true
           Modal.confirm({
-            title: 'Confirm',
-            content: 'Bla bla ...',
-            okText: '确认',
-            cancelText: '取消'
-          })
-          Modal.confirm({
             title: '确定登出',
             content: 'token失效，可以取消继续留在该页面，或者重新登录',
             okText: '重新登录',
@@ -110,8 +107,8 @@ function isShowLoading() {
   setTimeout(() => {
     const { loading } = store.getState()
     let flag = arr.length > 0
-    flag !== loading && store.dispatch({ type: 'updateLoading', payload: flag })
-  }, 100)
+    flag !== loading && store.dispatch({ type: 'LOADING', payload: { loading: flag } })
+  }, 300)
 }
 function showLoading(symbolId: symbol) {
   arr.push(symbolId)

@@ -1,31 +1,16 @@
-export interface RootState {
-  loading: boolean
-  windowSize: { width: number; height: number } | null
-  baseUrl: string
-  token: string | undefined
-  userId: string | undefined
-  menuList: Array<any>
-  systemInfo: {
-    systemId: string
-    sysName: string
-    notST?: boolean
-    layzLoading(path: string): () => Promise<any>
-  }
-  initRoute: null | any
-  user: any
-  sysList: Array<any>
-}
+import { RootState } from '../'
+import Cookies from 'js-cookie'
+
 interface Action {
   type: string
   payload?: any
 }
-
 const initState: RootState = {
   baseUrl: 'test',
   loading: false,
   windowSize: null,
-  token: undefined,
-  userId: undefined,
+  token: Cookies.get('st-creditech.com.token'),
+  userId: Cookies.get('st-creditech.com.user_id'),
   menuList: [],
   systemInfo: {
     sysName: '平台管理系统',
@@ -36,13 +21,21 @@ const initState: RootState = {
   },
   sysList: [],
   initRoute: null,
-  user: null
+  userInfo: null
 }
-
-export function reducer(state = initState, action: Action): RootState {
-  switch (action.type) {
-    // case 'FETCH_DATA':
-
+/* eslint-disable no-fallthrough */
+export function reducer(state = initState, { type, payload }: Action): RootState {
+  console.log(payload)
+  switch (type) {
+    case 'LOGIN':
+      Cookies.set('st-creditech.com.token', payload.token)
+      Cookies.set('st-creditech.com.user_id', payload.userId)
+    case 'LOADING':
+    case 'USER_INFO':
+      return {
+        ...state,
+        ...payload
+      }
     default:
       return state
   }

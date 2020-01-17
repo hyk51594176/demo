@@ -1,10 +1,11 @@
 import React, { useCallback } from 'react'
 import styled from 'styled-components'
-import { useSelector } from 'react-redux'
-import { RootState } from '../store/reducer'
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState } from '../store'
 import { Form, Icon, Input, Button } from 'antd'
 import { WrappedFormUtils, FormProps } from 'antd/lib/form/Form'
-
+import SliderValidate from '../components/common/sliderValidate/SliderValidate'
+import { login, LoginParams } from '../store/action'
 const LoginWarp = styled.div`
   position: relative;
   width: 100%;
@@ -26,7 +27,7 @@ const LoginWarp = styled.div`
     z-index: 1;
     margin-bottom: 50px;
     .ms-login {
-      width: 360px;
+      width: 380px;
       padding: 40px;
       border-radius: 10px;
       background-color: rgba(102, 88, 88, 0.45);
@@ -47,23 +48,19 @@ const LoginWarp = styled.div`
   }
 `
 
-interface FormData {
-  loginName: string
-  password: string
-}
-
 const LoginForm = Form.create({ name: 'register' })((props: FormProps) => {
   const { getFieldDecorator, validateFields } = props.form as WrappedFormUtils
+  const dispatch = useDispatch()
   const onSubmit = useCallback(
     e => {
       e.preventDefault()
-      validateFields((err: Error, values: FormData) => {
+      validateFields((err: Error, values: LoginParams) => {
         if (!err) {
-          console.log('Received values of form: ', values)
+          dispatch(login(values))
         }
       })
     },
-    [validateFields]
+    [dispatch, validateFields]
   )
   return (
     <Form onSubmit={onSubmit}>
@@ -76,6 +73,11 @@ const LoginForm = Form.create({ name: 'register' })((props: FormProps) => {
         {getFieldDecorator('password', {
           rules: [{ required: true, message: 'Please input your Password!' }]
         })(<Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />)}
+      </Form.Item>
+      <Form.Item>
+        {getFieldDecorator('sliderToken', {
+          rules: [{ required: true, message: 'Please input your Password!' }]
+        })(<SliderValidate />)}
       </Form.Item>
       <Form.Item>
         <Button type="primary" htmlType="submit" block className="login-form-button">

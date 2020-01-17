@@ -1,0 +1,64 @@
+{
+  "baseUrl": "/services",
+  "fileUrl": "/files",
+  "apiUrl": "/apies",
+  "iconUrl": "//at.alicdn.com/t/font_873944_90qt5oni0xp.css",
+  "platform": {
+    "inside": {
+      "develop": {
+        "sysName": "开发平台",
+        "systemId": "745908334"
+      },
+      "usercenter": {
+        "sysName": "平台管理系统",
+        "systemId": "6"
+      },
+      "demo": {
+        "sysName": "模板演示",
+        "systemId": "835765924"
+      },
+      "billing": {
+        "sysName": "运营管理平台",
+        "systemId": "1100393365",
+        "htmlName": "index.html"
+      },
+      "datashare": {
+        "sysName": "智享平台",
+        "systemId": "2129036317",
+        "privateScript": [
+          "https://cdnjs.cloudflare.com/ajax/libs/echarts/4.2.1/echarts.common.min.js"
+        ]
+      },
+      "datarisk": {
+        "sysName": "数据风险管理平台",
+        "systemId": "1320372859",
+        "htmlName": "datarisk.html"
+      },
+      "insurance":{
+        "sysName": "智保平台",
+        "systemId": "801955776"
+      }
+    },
+    "outside": {
+      "datashare": {
+        "systemId": "801661710",
+        "sysName": "智享平台",
+        "privateScript": [
+          "https://cdnjs.cloudflare.com/ajax/libs/echarts/4.2.1/echarts.common.min.js"
+        ]
+      },
+      "risk": {
+        "sysName": "智控风险管理平台",
+        "systemId": "5",
+        "htmlName": "index.html",
+        "privateScript": [
+          "https://cdnjs.cloudflare.com/ajax/libs/echarts/4.2.1/echarts.min.js"
+        ]
+      },
+      "insurance":{
+        "sysName": "智保平台",
+        "systemId": "1837748886"
+      }
+    }
+  }
+}

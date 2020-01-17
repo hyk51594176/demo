@@ -1,14 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
-import App from './pages/App'
-import * as serviceWorker from './serviceWorker'
-import { Provider } from './utils/store'
-import { initState, reducer } from './utils/reducer'
+import { Provider } from 'react-redux'
 
+import './index.css'
+import Routers from './router'
+import * as serviceWorker from './serviceWorker'
+import store from './store'
 ReactDOM.render(
-  <Provider initState={initState} reducer={reducer}>
-    <App />
+  <Provider store={store}>
+    <Routers />
   </Provider>,
   document.getElementById('root')
 )

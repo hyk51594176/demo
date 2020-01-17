@@ -1,15 +1,24 @@
 @font-face {
   font-family: "kuma";
-  src: url("https://s.tbcdn.cn/g/platform/common/fonts/kuma.eot"); /* IE9*/
-  src: url("https://s.tbcdn.cn/g/platform/common/fonts/kuma.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */ url("https://s.tbcdn.cn/g/platform/common/fonts/kuma.woff") format("woff"), /* chrome 6+��firefox 3.6+��Safari5.1+��Opera 11+ */ url("https://s.tbcdn.cn/g/platform/common/fonts/kuma.ttf") format("truetype"), /* chrome��firefox��opera��Safari, Android, iOS 4.2+*/ url("https://s.tbcdn.cn/g/platform/common/fonts/kuma.svg#kuma") format("svg"); /*  iOS 4.1- */
+  src: url("https://s.tbcdn.cn/g/platform/common/fonts/kuma.eot");
+  /* IE9*/
+  src: url("https://s.tbcdn.cn/g/platform/common/fonts/kuma.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */
+    url("https://s.tbcdn.cn/g/platform/common/fonts/kuma.woff") format("woff"),
+    /* chrome 6+��firefox 3.6+��Safari5.1+��Opera 11+ */
+    url("https://s.tbcdn.cn/g/platform/common/fonts/kuma.ttf") format("truetype"),
+    /* chrome��firefox��opera��Safari, Android, iOS 4.2+*/
+    url("https://s.tbcdn.cn/g/platform/common/fonts/kuma.svg#kuma") format("svg");
+  /*  iOS 4.1- */
   font-weight: normal;
   font-style: normal;
 }
 
-@font-face{
-font-family: 'Rufina-Bold';
-src : url('./assets/Rufina-Bold.ttf');
+@font-face {
+  font-family: 'Rufina-Bold';
+  src: url('./assets/Rufina-Bold.ttf');
 }
+
 /* @font-face{
 font-family: 'PingFangSC-Regular';
 src : url('../../Roboto/PingFangSC-Regular.ttf');
@@ -20,6 +29,7 @@ src : url('../../Roboto/PingFangSC-Regular.ttf');
   cursor: default;
   -webkit-font-smoothing: antialiased;
 }
+
 body,
 h1,
 h2,
@@ -57,10 +67,12 @@ select,
 textarea {
   font: 12px/1.5 '\5FAE\8F6F\96C5\9ED1', '\5b8b\4f53', tahoma, arial;
 }
-a{
+
+a {
   cursor: pointer;
   text-decoration: none;
 }
+
 h1,
 h2,
 h3,
@@ -82,4 +94,11 @@ a {
 
 a:hover {
   color: #08c;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
 }
